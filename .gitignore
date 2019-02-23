@@ -33,6 +33,8 @@ local.properties
 #djini
 /deps
 .externalNativeBuild
+/library
+
 
 # node.js
 #

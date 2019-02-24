@@ -121,7 +121,7 @@ LOCAL_PRELINK_MODULE := false
 
 OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=STATIC
-include ./library/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
+include $(LOCAL_PATH)/library/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
 
 LOCAL_MODULE := libhelloworld_jni
 

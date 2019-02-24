@@ -5,7 +5,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactMethod;
 
-import com.helloworldjini.Dehaze;
+import com.mycompany.helloworld.Dehaze;
 
 class DehazeModule extends ReactContextBaseJavaModule {
     public DehazeModule(ReactApplicationContext reactContext) {

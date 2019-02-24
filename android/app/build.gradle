@@ -108,6 +108,9 @@ android {
                 cppFlags "-std=c++11 -frtti -fexceptions"
             }
         }
+        ndk {
+            abiFilters "armeabi-v7a", "x86", "arm64-v8a"
+        }
     }
     splits {
         abi {
@@ -125,10 +128,23 @@ android {
     }
     sourceSets {
         main {
+            jni {
+                srcDirs = [
+                        'src/main/jniLibs'
+                ]
+            }
             java {
                 srcDirs = [
                     "../../generated-src/java",
                     "src/main/java"
+                ]
+            }
+            jni {
+                srcDirs = [
+                    "../../deps/djinni/support-lib/jni",
+                    "../../generated-src/cpp",
+                    "../../generated-src/jni",
+                    "../../src/cpp"
                 ]
             }
         }

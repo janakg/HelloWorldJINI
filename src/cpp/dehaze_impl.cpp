@@ -1,6 +1,6 @@
 #include "dehaze_impl.hpp"
 
-namespace dehaze {
+namespace helloworld {
 
 std::shared_ptr<Dehaze> Dehaze::create() {
     return std::make_shared<DehazeImpl>();

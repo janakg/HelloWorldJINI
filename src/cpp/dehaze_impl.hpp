@@ -5,9 +5,9 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 
-namespace dehaze {
+namespace helloworld {
 
-class DehazeImpl: public dehaze::Dehaze {
+class DehazeImpl: public helloworld::Dehaze {
     public:
         DehazeImpl();
         std::string dehaze(const std::string &uri, const std::string &media) override;

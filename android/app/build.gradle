@@ -93,6 +93,7 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -102,8 +103,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions"
+            }
         }
     }
     splits {
@@ -124,25 +127,18 @@ android {
         main {
             java {
                 srcDirs = [
-                        "src/main/java",
-                        "../../generated-src/java"
-                ]
-            }
-            jni {
-                srcDirs = [
-                        "../../deps/djinni/support-lib/jni",
-                        "../../generated-src/cpp",
-                        "../../generated-src/jni",
-                        "../../src/cpp"
+                    "../../generated-src/java",
+                    "src/main/java"
                 ]
             }
         }
     }
     externalNativeBuild {
-        ndkBuild {
-            path "Android.mk"
+        cmake {
+            path "CMakeLists.txt"
         }
     }
+   
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->

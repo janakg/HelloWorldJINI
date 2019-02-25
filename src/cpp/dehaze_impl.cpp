@@ -194,7 +194,7 @@ std::string DehazeImpl::get_dehazed_uri(const std::string &uri) {
 }
 
 std::string DehazeImpl::save_dehazed_image(const cv::Mat &dehazed_image, const std::string &uri) {
-    std::vector<int32_t> compression_params = { CV_IMWRITE_PNG_COMPRESSION, 9 };
+    std::vector<int32_t> compression_params = { cv::IMWRITE_PNG_COMPRESSION, 9 };
     std::string dehazed_uri = this->get_dehazed_uri(uri);
     cv::imwrite(this->trim_uri_protocal(dehazed_uri), dehazed_image, compression_params);
     return dehazed_uri;

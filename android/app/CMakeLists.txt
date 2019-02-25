@@ -21,8 +21,16 @@ set_target_properties(lib-opencv PROPERTIES IMPORTED_LOCATION
                       ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
 
 
+add_library(lib-opencv-imgcodecs STATIC IMPORTED)
+set_target_properties(lib-opencv-imgcodecs PROPERTIES IMPORTED_LOCATION
+                      ${CMAKE_CURRENT_SOURCE_DIR}/src/main/staticLibs/${ANDROID_ABI}/libopencv_imgcodecs.a)
+
 
 add_library(helloworld SHARED ${helloworld_sources})
+
+set(CMAKE_VERBOSE_MAKEFILE on)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+
 find_library( # Sets the name of the path variable.
         log-lib
 
@@ -35,6 +43,9 @@ target_link_libraries( # Specifies the target library.
 
         # OpenCV lib
         lib-opencv
+
+        #OpenCV ImgCodecs
+        lib-opencv-imgcodecs
 
         # Links the target library to the log library
         # included in the NDK.

@@ -93,7 +93,6 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -171,6 +170,9 @@ android {
 }
 
 dependencies {
+    implementation project(':appcenter-crashes')
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter')
     implementation project(':react-native-video')
     implementation project(':react-native-image-picker')
     implementation fileTree(dir: "libs", include: ["*.jar"])
